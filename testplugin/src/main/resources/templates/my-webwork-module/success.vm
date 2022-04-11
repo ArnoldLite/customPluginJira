@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>$i18n.getText('hello-page-item.view') </title>
+</head>
+
+<body>
+<form class="aui" method="post">
+    <div class="field-group">
+
+        <br>
+        <h1 class="">$i18n.getText('say-hello.view') ${userName}</h1>
+        <h1>$i18n.getText('say-here-your-worklogs.view')</h1>
+        <br>
+
+        <table>
+            <tr>
+                <th>$i18n.getText('issue-key.view')</th>
+                <th>$i18n.getText('time-spent.view')</th>
+            </tr>
+            #foreach($worklogs in $workLogsForLogUser)
+                <tr>
+                    <td>${worklogs.getIssueKey()}</td>
+                    <td>${worklogs.getTimeSpent()} $i18n.getText('hours.view')</td>
+                </tr>
+            #end
+        </table>
+    </div>
+    <br>
+    <div class="field-group">
+        <label for="text">$i18n.getText('first-text-area.view')
+            <span class="aui-icon icon-required">(required)</span></label>
+
+        <input class="text medium-field" type="text" id="text" name="text" value= "$!{text}"
+               placeholder="$i18n.getText('placeholder-first-textTable-area.view')">
+
+        <div class="description">$i18n.getText('description-first-textTable-area.view')</div>
+    </div>
+    <br>
+    <div class="buttons-container">
+        <div class="buttons">
+            <input class="button submit" type="submit" id="text-send-button"
+                   formaction="MyWebworkModuleAction!save.jspa" value=$i18n.getText('send-button.view')>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
